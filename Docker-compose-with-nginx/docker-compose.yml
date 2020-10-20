@@ -1,0 +1,10 @@
+version: '3.2'
+services:
+  nginx: 
+    image: freelance-01:latest 
+    build: .
+    ports: 
+      - "9080:80"
+      - "9443:443"
+    volumes: 
+      - ./nginx-ssl-certs:/etc/nginx/certs
