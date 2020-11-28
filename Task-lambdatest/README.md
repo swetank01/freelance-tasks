@@ -5,20 +5,14 @@ We need a system where we provide a website link and want to capture the screens
 ## Doubts and Queries
 
 ## Hints
-
 - Use Selenium Grid
 - https://github.com/SeleniumHQ/docker-selenium/tree/selenium-3
-
-https://robotninja.com/blog/introduction-using-selenium-docker-containers-end-end-testing/
+- https://robotninja.com/blog/introduction-using-selenium-docker-containers-end-end-testing/
 
 ## Ref 
-
 - https://dev.to/nazliander/using-selenium-within-a-docker-container-ghp // NO
-
-https://www.the-lazy-dev.com/en/python-selenium-grid-and-docker/ // YES
-
-https://nander.cc/using-selenium-within-a-docker-container  
-
+- https://www.the-lazy-dev.com/en/python-selenium-grid-and-docker/ // YES
+- https://nander.cc/using-selenium-within-a-docker-container  
 
 ## Chrome Headless
 
@@ -38,8 +32,11 @@ source env/bin/activate
 pip install selenium
 deactivate
 ```
+## Boto to s3
+https://realpython.com/python-boto3-aws-s3/
 
 
+--- > REMEBER boto3 s3 pre-signed url is not work on every region 
 ## Tutorials & Blogs 
 
 - https://blog.testproject.io/2019/07/16/web-test-using-selenium-webdriver-python-chrome/
