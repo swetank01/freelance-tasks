@@ -33,10 +33,13 @@ https://bitsofco.de/using-a-headless-browser-to-capture-page-screenshots/
 ### Getting Started
 
 ```
-mkdir testdriven-app && cd testdriven-app $ mkdir services && cd services
-mkdir users && cd users
-mkdir project
 python3.6 -m venv env
 source env/bin/activate
+pip install selenium
 deactivate
 ```
+
+
+## Tutorials & Blogs 
+
+- https://blog.testproject.io/2019/07/16/web-test-using-selenium-webdriver-python-chrome/
