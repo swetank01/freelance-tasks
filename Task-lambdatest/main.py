@@ -7,7 +7,6 @@ from botocore.client import Config
 import datetime
 
 def upload_file(file_name, bucket, object_name=None):
-    print("upload_file started")
     # If S3 object_name was not specified, use file_name
     if object_name is None:
         object_name = file_name
@@ -31,7 +30,7 @@ def create_presigned_url(bucket_name, object_name, expiration=1800):
         return None
 
     # The response contains the presigned URL
-    return print(response)
+    return print("\n"+response+"\n")
 
 def create_screenshoot(browser_node, seleniumurl, mybucket):
     for Browser in browser_node:
@@ -43,21 +42,20 @@ def create_screenshoot(browser_node, seleniumurl, mybucket):
         driver.get_screenshot_as_file(filename)
         driver.quit()
         print(filename+" Generated Successfully!")
+        print(Browser+" Screenshoot Upload Initiated-->")
         upload_file(filename, mybucket)
-        print("upload_file End")
+        print(Browser+" Screenshoot Upload Completed-->")
         create_presigned_url(mybucket, filename)
-        print("URL generated")
+        print(filename+" URL generated Above")
 
 def main():
-    #seleniumurl = input("Enter Selenium-Grid-Hub URL :")
-    seleniumurl = "http://localhost:4444/wd/hub"
-    #mybucket = input("Enter Bucket Name :")
-    mybucket = "lambdatest-bucket-main"
+    seleniumurl = input("Enter Selenium-Grid-Hub URL : ") # http://localhost:4444/wd/hub
+    mybucket = input("Enter Bucket Name : ") # lambdatest-bucket-main
     browserList = ['chrome', 'firefox']
 
-    print("started")
+    print("##### Process Started ######")
     create_screenshoot(browserList, seleniumurl, mybucket)
-    print("selenium automation is done!!")
+    print("Selenium automation is done!!")
 
 if __name__=="__main__":
     main()

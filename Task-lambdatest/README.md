@@ -2,6 +2,18 @@
 
 We need a system where we provide a website link and want to capture the screenshot on chrome & Firefox in Ubuntu. Create a script which asks for a website link and spawns 2 containers parallely  and opens that link in chrome  and Firefox, capture the screenshot, push them to s3 and provide 2 signed s3 links. Links should expire after 30 mins
 
+# Setup
+1. Spin up the selenium hub, chrome and firefox container using the command given below 
+`docker-compose up -d`
+
+2. Setup AWS config 
+```
+vi ~/.aws/credentials
+[default]
+aws_access_key_id = 
+aws_secret_access_key = 
+```
+
 ## Doubts and Queries
 
 ## Hints
