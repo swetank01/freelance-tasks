@@ -32,12 +32,12 @@ def create_presigned_url(bucket_name, object_name, expiration=1800):
     # The response contains the presigned URL
     return print("\n"+response+"\n")
 
-def create_screenshoot(browser_node, seleniumurl, mybucket):
+def create_screenshoot(browser_node, seleniumurl, weburl, mybucket):
     for Browser in browser_node:
         timestamp = str(datetime.datetime.now())
         filename = "screenshot_"+Browser+"_"+timestamp+".png"
         driver = webdriver.Remote(command_executor = seleniumurl, desired_capabilities = {'browserName': Browser})
-        driver.get('https://www.lambdatest.com/')
+        driver.get(weburl)
         sleep(1)
         driver.get_screenshot_as_file(filename)
         driver.quit()
@@ -49,12 +49,13 @@ def create_screenshoot(browser_node, seleniumurl, mybucket):
         print(filename+" URL generated Above")
 
 def main():
+    weburl = input("Enter Website link for snapshot: ") # https://www.lambdatest.com/
     seleniumurl = input("Enter Selenium-Grid-Hub URL : ") # http://localhost:4444/wd/hub
     mybucket = input("Enter Bucket Name : ") # lambdatest-bucket-main
     browserList = ['chrome', 'firefox']
 
     print("##### Process Started ######")
-    create_screenshoot(browserList, seleniumurl, mybucket)
+    create_screenshoot(browserList, seleniumurl, weburl, mybucket)
     print("Selenium automation is done!!")
 
 if __name__=="__main__":
